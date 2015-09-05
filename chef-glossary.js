@@ -3,25 +3,44 @@ Router.configure({
   layoutTemplate: 'main'
 });
 
-Router.route('/home')
+Router.route('home')
 Router.route('result');
 
 Router.route('/', {
-    name: 'home'
-    template: '/home'
+    template: 'home'
 });
+
+var callSearchFunction = function(word) {
+  if(word.length > 0) {
+    Session.set('searchWordTyped', word);
+    Router.go('result');
+  }
+};
 
 if (Meteor.isClient) {
 
-  Template.main.Template.name.helpers({
+  Template.result.helpers({
+    searchWord: function() {
+      return Session.get('searchWordTyped')
+    }
   });
 
   Template.home.events({
     "click #searchButton": function(event, template){
+      alert("Here")
+      callSearchFunction(document.getElementById('searchInput').value);
 
-
-
-      alert("Looking for " + document.getElementById('searchInput').value);
+    },
+    "submit #searchInput": function (event, template) {
+        event.preventDefault();
+        callSearchFunction(document.getElementById('searchInput').value);
+    },
+    "keypress #searchInput": function(event, template) {
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        callSearchFunction(document.getElementById('searchInput').value);
+      }
+      return true;
     }
   });
 }
