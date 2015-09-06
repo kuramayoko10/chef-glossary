@@ -1,4 +1,7 @@
 //Router.route('/searchResult');
+Glossary = new Mongo.Collection("glossary");
+
+
 Router.configure({
   layoutTemplate: 'main'
 });
@@ -9,7 +12,6 @@ Router.route('result');
 Router.route('/', {
     template: 'home'
 });
-
 var callSearchFunction = function(word) {
   if(word.length > 0) {
     Session.set('searchWordTyped', word);
@@ -37,7 +39,7 @@ if (Meteor.isClient) {
     },
     "keypress #searchInput": function(event, template) {
       if(event.keyCode == 13) {
-        event.preventDefault();
+        event.preventDefault();d
         callSearchFunction(document.getElementById('searchInput').value);
       }
       return true;
