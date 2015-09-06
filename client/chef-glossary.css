@@ -4,14 +4,14 @@ html,body {
 }
 
 h1 {
-  font-family: Arial,sans-serif
+  font-family: Arial,sans-serif;
   font-size:80px;
   letter-spacing:2px;
   color:#332F3E;
 }
 
 .lead {
-	color:#332F3E;
+  color:#332F3E;
 }
 
 #searchInput,
@@ -33,6 +33,23 @@ h1 {
 
 #searchInput {
   height: 70px;
+}
+
+.inputForm{
+  margin-top: 50%;
+  width: 50%;
+}
+
+.inputForm.verticalTranslate{
+  -webkit-transition: 2s;
+          transition: 2s;
+  margin-top: 0% !important;
+}
+
+.inputForm.horizontalStretch {
+  -webkit-transition: 2s;
+          transition: 2s;
+  width: 100% !important;
 }
 
 .panel {
