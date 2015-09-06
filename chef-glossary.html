@@ -47,4 +47,12 @@
 
 <template name="result">
 	<h1>Resultado para {{searchWord}}</h1>
+	<ul>
+		<li>
+			{{#each search}}
+				<h3>{{name}}</h3>
+				<p>{{description}}</p>
+			{{/each}}
+		</li>
+	</ul>
 </template>

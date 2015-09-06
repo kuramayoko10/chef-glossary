@@ -1,29 +1,32 @@
 //Router.route('/searchResult');
 Glossary = new Mongo.Collection("glossary");
 
-
-Router.configure({
-  layoutTemplate: 'main'
-});
-
-Router.route('home')
-Router.route('result');
-
-Router.route('/', {
-    template: 'home'
-});
-var callSearchFunction = function(word) {
-  if(word.length > 0) {
-    Session.set('searchWordTyped', word);
-    Router.go('result');
-  }
-};
-
 if (Meteor.isClient) {
 
+  Router.configure({
+    layoutTemplate: 'main'
+  });
+
+  Router.route('home')
+  Router.route('result');
+
+  Router.route('/', {
+      template: 'home'
+  });
+
+  var callSearchFunction = function(word) {
+    if(word.length > 0) {
+      Session.set('searchWordTyped', word);
+      Router.go('result');
+    }
+  };
+
   Template.result.helpers({
-    searchWord: function() {
+    'searchWord': function() {
       return Session.get('searchWordTyped')
+    },
+    'search': function() {
+        return Glossary.find({name: Session.get('searchWordTyped')});
     }
   });
 
@@ -39,7 +42,7 @@ if (Meteor.isClient) {
     },
     "keypress #searchInput": function(event, template) {
       if(event.keyCode == 13) {
-        event.preventDefault();d
+        event.preventDefault();
         callSearchFunction(document.getElementById('searchInput').value);
       }
       return true;
