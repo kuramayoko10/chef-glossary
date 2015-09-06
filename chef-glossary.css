@@ -1,16 +1,17 @@
 html,body {
   height:100%;
+
 }
 
 h1 {
   font-family: Arial,sans-serif
   font-size:80px;
   letter-spacing:2px;
-  color:#DDCCEE;
+  color:#332F3E;
 }
 
 .lead {
-	color:#DDCCEE;
+	color:#332F3E;
 }
 
 #searchInput,
@@ -19,8 +20,23 @@ h1 {
   font-size: 16px;
 }
 
+#searchButton {
+  color: #332F3E;
+}
+
+#searchInput {
+  border-top-left-radius:15px;
+  border-bottom-left-radius:15px;
+  border-top-right-radius:15px;
+  border-bottom-right-radius:15px;
+}
+
 #searchInput {
   height: 70px;
+}
+
+.panel {
+  background-color: #80C8B5;
 }
 
 /* Custom container */
@@ -28,14 +44,14 @@ h1 {
   margin: 0 auto;
   width: 100%;
   min-height:100%;
-  background-color:#110022;
-  color:#eee;
+  background-color:#80C8B5;
+  color:#332F3E;
   overflow:hidden;
 }
 
 .container-full a {
-  color:#efefef;
-  text-decoration:none;
+    color:#332F3E;
+    text-decoration:none;
 }
 
 .v-center {

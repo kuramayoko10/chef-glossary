@@ -16,7 +16,7 @@ if (Meteor.isClient) {
 
   var callSearchFunction = function(word) {
     if(word.length > 0) {
-      Session.set('searchWordTyped', word);
+      Session.set('searchWordTyped', word.toLowerCase());
       Router.go('result');
     }
   };
